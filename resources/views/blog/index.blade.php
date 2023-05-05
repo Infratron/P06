@@ -4,7 +4,7 @@
         @foreach($articles as $article)
             <div class="col-12 col-md-4 my-3">
                 <div class="card">
-                    <img src="https://picsum.photos/300" class="card-img-top" alt="...">
+                    <img src="{{Storage::url($article->cover)}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$article->title}}</h5>
                         <p class="small fst-italic">{{$article->author}}</p>

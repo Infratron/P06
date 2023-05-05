@@ -13,6 +13,8 @@
     <x-header header="{{$header}}" />
    
         {{$slot}}
+   
+        
 
     <x-footer />
 </body>

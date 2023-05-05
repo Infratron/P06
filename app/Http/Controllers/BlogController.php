@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Article;
+use App\Http\Requests\ArticleRequest;
 
 class BlogController extends Controller
 {
@@ -12,7 +13,7 @@ class BlogController extends Controller
         return view('blog.create');
     }
 
-    public function store(Request $request){
+    public function store(ArticleRequest $request){
         // $blog = new Article();
         // $blog->title = $request->title;
         // $blog->author = $request->author;
@@ -24,6 +25,7 @@ class BlogController extends Controller
             'title' => $request->title,
             'author' => $request->author,
             'description' => $request->description,
+            'cover' => $request->file('cover')->store('public/covers'),
         ]);
         return redirect(route('Homepage'))->with('articleCreated', 'Hai inserito con successo un articolo!');
     }
