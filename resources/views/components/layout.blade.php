@@ -11,9 +11,8 @@
 
     <x-navbar />
     <x-header header="{{$header}}" />
-    <div class="vh-100">
+   
         {{$slot}}
-    </div>
 
     <x-footer />
 </body>
