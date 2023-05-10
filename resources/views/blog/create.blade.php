@@ -7,7 +7,7 @@
                     @csrf
 
  
-                                <h1>Create Post</h1>
+                                <h1>Crea l'articolo</h1>
                                 
                                 @if ($errors->any())
                                     <div class="alert alert-danger">

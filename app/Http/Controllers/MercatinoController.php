@@ -29,7 +29,14 @@ class MercatinoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mercatino = Mercatino::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'logo' => $request->file('logo')->store('public/logos'),
+        ]);
+        
+        return redirect(route('mercatino.index'))->with('mercatinoCreated', 'Hai inserito con successo un annuncio');
     }
 
     /**

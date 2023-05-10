@@ -3,11 +3,11 @@
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8">
-                <form action="" method="POST" class="p-5 shadow" enctype="multipart/form-data">
+                <form action="{{route('mercatino.store')}}" method="POST" class="p-5 shadow" enctype="multipart/form-data">
                     @csrf
 
  
-                                <h1>Create Post</h1>
+                                <h1>Crea l'annuncio</h1>
                                 
                                 @if ($errors->any())
                                     <div class="alert alert-danger">

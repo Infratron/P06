@@ -21,4 +21,5 @@ Route::get('/blog/inserisci',[BlogController::class, 'create'])->name('blog.crea
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
 Route::get('/blog/index', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/mercatino/index', [MercatinoController::class, 'index'])->name('mercatino.index');
-Route::get('mercatino/create', [MercatinoController::class, 'create'])->name('mercatino.create');
+Route::get('/mercatino/create', [MercatinoController::class, 'create'])->name('mercatino.create');
+Route::post('/mercatino/store', [MercatinoController::class, 'store'])->name('mercatino.store');
