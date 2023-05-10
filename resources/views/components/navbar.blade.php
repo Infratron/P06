@@ -16,17 +16,34 @@
         <li class="nav-item">
         <a class="nav-link" href="{{route('blog.index')}}">Lista degli articoli</a>
         </li>
+
+        @auth
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Bentornato/a {{ Auth::user()->name}}
+          </a>
+          <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Profilo</li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
+            <form id="form-logout" method="POST" action="{{route('logout')}}" class="d-none">@csrf</form>
+          </ul>
+        </li>
+        @else  <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Visione Ospite
           </a>
           <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="{{route('login')}}">Accedi</li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#" onlick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
+            <form id="form-logout" method="POST" action="{{route('logout')}}" class="d-none">@csrf</form>
           </ul>
         </li>
+        @endauth
+
+
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Scrivi qui" aria-label="Search">

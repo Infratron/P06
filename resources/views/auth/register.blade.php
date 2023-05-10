@@ -1,11 +1,11 @@
-<x-layout header="Accedi">
+<x-layout header="Registrati">
 
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
 
 
-            <form class="p-5 shadow" method="POST" action="{{route('login')}}">
+            <form class="p-5 shadow" method="POST" action="{{route('register')}}">
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -17,21 +17,30 @@
                 </div>
             @endif
 
+
                 @csrf
                     <div class="mb-3">
                         <label for="email" class="form-label">Indirizzo e-mail</label>
                         <input type="email" name="email" class="form-control" id="email">
                     </div>
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nome Utente</label>
+                        <input type="text" name="name" class="form-control" id="name">
+                    </div>
+
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" id="password">
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" name="remember" class="form-check-input" id="remember">
-                        <label class="form-check-label" for="remember">Ricordami</label>
+
+                    <div class="mb-3">
+                        <label for="password_confirmation" class="form-label">Conferma Password</label>
+                        <input type="password" name="password_confirmation" class="form-control" id="password_confirmation">
                     </div>
-                    <button type="submit" class="btn btn-primary">Accedi</button>
+                    <button type="submit" class="btn btn-primary">Registrati</button>
             </form>
+           
              </div>
         </div>
     </div>
