@@ -21,7 +21,7 @@ class MercatinoController extends Controller
      */
     public function create()
     {
-        //
+        return view('mercatino.create');
     }
 
     /**

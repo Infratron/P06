@@ -14,6 +14,9 @@
         <a class="nav-link" href="{{route('blog.create')}}">Iserisci Articolo</a>
         </li>
         <li class="nav-item">
+        <a class="nav-link" href="{{route('mercatino.create')}}">Iserisci Annuncio</a>
+        </li>
+        <li class="nav-item">
         <a class="nav-link" href="{{route('blog.index')}}">Lista degli articoli</a>
         </li>
         <li class="nav-item">
