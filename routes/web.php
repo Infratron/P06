@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\MercatinoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', [PublicController::class, 'Homepage'])->name('Homepage');
 Route::get('/blog/inserisci',[BlogController::class, 'create'])->name('blog.create');
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
 Route::get('/blog/index', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/mercatino/index', [MercatinoController::class, 'index'])->name('mercatino.index');

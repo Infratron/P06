@@ -16,6 +16,9 @@
         <li class="nav-item">
         <a class="nav-link" href="{{route('blog.index')}}">Lista degli articoli</a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{{route('mercatino.index')}}">Annunci Mercatino</a>
+        </li>
 
         @auth
         <li class="nav-item dropdown">
