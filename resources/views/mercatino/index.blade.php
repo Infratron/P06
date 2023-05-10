@@ -16,6 +16,9 @@
                         <h5 class="card-title">{{$mercatino->name}}</h5>
                         <p class="card-text">{{$mercatino->price}}</p>
                         <p class="small fst-italic"> Caricato il {{$mercatino->created_at}}</p>
+                        <a href="{{route('mercatino.show', compact('mercatino'))}}" class="btn btn-primary mt-3">
+                            Scopri di più
+                        </a>
                     </div>
                     </div>
             </div>

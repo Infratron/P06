@@ -23,3 +23,4 @@ Route::get('/blog/index', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/mercatino/index', [MercatinoController::class, 'index'])->name('mercatino.index');
 Route::get('/mercatino/create', [MercatinoController::class, 'create'])->name('mercatino.create');
 Route::post('/mercatino/store', [MercatinoController::class, 'store'])->name('mercatino.store');
+Route::get('/mercatino/show{mercatino}', [MercatinoController::class, 'show'])->name('mercatino.show');
