@@ -55,7 +55,7 @@ class MercatinoController extends Controller
      */
     public function edit(Mercatino $mercatino)
     {
-        //
+        return view('mercatino.edit', compact('mercatino'));
     }
 
     /**

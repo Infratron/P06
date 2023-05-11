@@ -19,6 +19,9 @@
                         <a href="{{route('mercatino.show', compact('mercatino'))}}" class="btn btn-primary mt-3">
                             Scopri di più
                         </a>
+                        <a href="{{route('mercatino.edit', compact('mercatino'))}}" class="btn btn-danger mt-3">
+                            Modifica Annuncio
+                        </a>
                     </div>
                     </div>
             </div>
