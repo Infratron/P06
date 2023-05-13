@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Mercatino;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\MercatinoRequest;
 
 class MercatinoController extends Controller
 {
@@ -30,14 +32,18 @@ class MercatinoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MercatinoRequest $request)
     {
         $mercatino = Mercatino::create([
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
-            'logo' => $request->file('logo')->store('public/logos'),
         ]);
+        if($request->logo){
+            $mercatino->update([
+                'logo'=>$request->file('logo')->store('public/logos')
+            ]);
+        }
         
         return redirect(route('mercatino.index'))->with('mercatinoCreated', 'Hai inserito con successo un annuncio');
     }
@@ -63,7 +69,19 @@ class MercatinoController extends Controller
      */
     public function update(Request $request, Mercatino $mercatino)
     {
-        //
+            $mercatino->update([
+                'name'=> $request->name,
+                'price'=>$request->price,
+                'description'=>$request->description,
+            ]);
+
+        if($request->logo){
+            $mercatino->update([
+                'logo'=>$request->file('logo')->store('public/logos')
+            ]);
+        }
+
+        return redirect(route('mercatino.index'))->with('mercatinoUpdate', "Hai aggiornato correttamente l'annuncio");
     }
 
     /**

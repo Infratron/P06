@@ -4,6 +4,11 @@
             {{ session('mercatinoCreated')}}
         </div>
         @endif
+        @if(session('mercatinoUpdate'))
+        <div class="alert alert-success">
+            {{ session('mercatinoUpdate')}}
+        </div>
+        @endif
         <div class="container my-5"></div>
         <div class="row justify-content-center">
             @if (count($mercatini))

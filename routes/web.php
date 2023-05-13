@@ -25,3 +25,4 @@ Route::get('/mercatino/create', [MercatinoController::class, 'create'])->name('m
 Route::post('/mercatino/store', [MercatinoController::class, 'store'])->name('mercatino.store');
 Route::get('/mercatino/show{mercatino}', [MercatinoController::class, 'show'])->name('mercatino.show');
 Route::get('mercatino/edit{mercatino}', [MercatinoController::class, 'edit'])->name('mercatino.edit');
+Route::put('mercatino/update{mercatino}', [MercatinoController::class, 'update'])->name('mercatino.update');
