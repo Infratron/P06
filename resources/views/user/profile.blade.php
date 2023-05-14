@@ -1,24 +1,7 @@
-<x-layout header="Benvenuto nel mercatino">
-        @if(session('mercatinoCreated'))
-        <div class="alert alert-success">
-            {{ session('mercatinoCreated')}}
-        </div>
-        @endif
-        @if(session('mercatinoUpdate'))
-        <div class="alert alert-success">
-            {{ session('mercatinoUpdate')}}
-        </div>
-        @endif
-        @if(session('mercatinoDeleted'))
-        <div class="alert alert-success">
-            {{ session('mercatinoDeleted')}}
-        </div>
-        @endif
-        <div class="container my-5"></div>
+<x-layout header="Profilo Utente">
+    <div class="container my-5">
         <div class="row justify-content-center">
-            @if (count($mercatini))
-            @foreach($mercatini as $mercatino)
-
+            @foreach(Auth::user()->mercatinos as $mercatino)
             <div class="col-12 col-md-4 my-3">
                 <div class="card">
                     <img src="{{Storage::url($mercatino->logo)}}" class="card-img-top" alt="...">
@@ -55,11 +38,6 @@
                     </div>
             </div>
             @endforeach
-            @else
-            <div class="col-12 text-center mb-5">
-                <h2>Al momento non ci sono annunci nel mercatino</h2>
-                @endif
-            </div>
-            </div>
         </div>
+    </div>
 </x-layout>

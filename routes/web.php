@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\MercatinoController;
 
@@ -17,6 +18,7 @@ use App\Http\Controllers\MercatinoController;
 */
 
 Route::get('/', [PublicController::class, 'Homepage'])->name('Homepage');
+Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
 Route::get('/blog/inserisci',[BlogController::class, 'create'])->name('blog.create');
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
 Route::get('/blog/index', [BlogController::class, 'index'])->name('blog.index');
@@ -26,3 +28,4 @@ Route::post('/mercatino/store', [MercatinoController::class, 'store'])->name('me
 Route::get('/mercatino/show{mercatino}', [MercatinoController::class, 'show'])->name('mercatino.show');
 Route::get('mercatino/edit{mercatino}', [MercatinoController::class, 'edit'])->name('mercatino.edit');
 Route::put('mercatino/update{mercatino}', [MercatinoController::class, 'update'])->name('mercatino.update');
+Route::delete('mercatino/destroy{mercatino}', [MercatinoController::class, 'destroy'])->name('mercatino.destroy');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mercatino;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\MercatinoRequest;
 
 class MercatinoController extends Controller
@@ -38,6 +39,7 @@ class MercatinoController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
+            'user_id' => Auth::user()->id
         ]);
         if($request->logo){
             $mercatino->update([
@@ -89,6 +91,8 @@ class MercatinoController extends Controller
      */
     public function destroy(Mercatino $mercatino)
     {
-        //
+        $mercatino->delete();
+
+        return redirect(route('mercatino.index'))->with('mercatinoDeleted', "Hai cancellato correttamente l'annuncio");
     }
 }

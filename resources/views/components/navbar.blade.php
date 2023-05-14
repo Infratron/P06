@@ -31,7 +31,7 @@
             Bentornato/a {{ Auth::user()->name}}
           </a>
           <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Profilo</li>
+          <li><a class="dropdown-item" href="{{route('user.profile')}}">Profilo</li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
             <form id="form-logout" method="POST" action="{{route('logout')}}" class="d-none">@csrf</form>
