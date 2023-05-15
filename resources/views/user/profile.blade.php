@@ -1,4 +1,26 @@
 <x-layout header="Profilo Utente">
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">I tuoi dati</h5>
+                    <p class="card-text">Nome utente: {{Auth::user()->name}}<p>
+                        <p class="card-text">Email utente: {{Auth::user()->email}}<p>
+                            <p class="card-text">Iscritto il: {{Auth::user()->created_at}}<p>
+
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#userDestroy">
+                                    Elimina Profilo
+                                  </button>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
     <div class="container my-5">
         <div class="row justify-content-center">
             @foreach(Auth::user()->mercatinos as $mercatino)
@@ -40,4 +62,25 @@
             @endforeach
         </div>
     </div>
+
+    <div class="modal" tabindex="-1" id="userDestroy">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Clicca su elimina profilo per confermare</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>L'operazione è irreversibile</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+              <form action="{{route('user.destroy')}}" method="POST">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-danger">Elimina Profilo</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </x-layout>

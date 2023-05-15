@@ -19,6 +19,7 @@ use App\Http\Controllers\MercatinoController;
 
 Route::get('/', [PublicController::class, 'Homepage'])->name('Homepage');
 Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
+Route::delete('/profile/destroy',[UserController::class, 'destroy'])->name('user.destroy');
 Route::get('/blog/inserisci',[BlogController::class, 'create'])->name('blog.create');
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
 Route::get('/blog/index', [BlogController::class, 'index'])->name('blog.index');

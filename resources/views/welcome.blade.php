@@ -4,4 +4,9 @@
     {{ session('articleCreated')}}
 </div>
 @endif
+@if(session('userDeleted'))
+<div class="alert alert-success">
+    {{ session('userDeleted')}}
+</div>
+@endif
 </x-layout>
